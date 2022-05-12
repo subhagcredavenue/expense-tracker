@@ -17,8 +17,10 @@ class TransactionsController < ApplicationController
 
   if max
     # @transactions= @transactions.desc(:amount).limit(max)
- @transactions= Transaction.collection.aggregate(['$group'=>{_id:{category:'$category'},amount:{'$sum':'$amount'}}])
+ @transactions= Transaction.collection.aggregate([{"$project"=>{ category: -1, amount: 1} }, {'$group'=>{_id:{category:'$category'},amount:{'$sum':'$amount'}}}])
+
  @transactions=@transactions.to_a.sort_by { |h | -h[:amount] }
+ @transactions=@transactions.slice(0,max.to_i)
 #  627b3e305bac34001b4f6cda
    end
 
