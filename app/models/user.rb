@@ -6,5 +6,17 @@ class User
   field :password, type: String
   field :DOB, type: String
 
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
+
+  validates_uniqueness_of :email, message: "Email already exists"
+
+  # def serializable_hash(options={})
+  #   {
+  #     id: id,
+  #   name: name,
+  #   email: email,
+  #     transactions: transactions.inject([]) { |acc, m| acc << m.serializable_hash; acc }
+  #   }
+  # end
+
 end
