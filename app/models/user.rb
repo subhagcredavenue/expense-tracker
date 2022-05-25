@@ -18,5 +18,4 @@ class User
   #     transactions: transactions.inject([]) { |acc, m| acc << m.serializable_hash; acc }
   #   }
   # end
-
 end
