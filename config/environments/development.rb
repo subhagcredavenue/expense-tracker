@@ -69,7 +69,7 @@ Rails.application.configure do
   #   authentication: "plain",
   #   enable_starttls_auto: true,
   #   # domain: "gmail.com"
-  # } 
+  # }
   config.action_mailer.sendmail_settings = {
     address: "smtp.gmail.com",
     port: 587,

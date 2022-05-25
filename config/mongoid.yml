@@ -2,7 +2,7 @@
 development:
   clients:
     default:
-      uri: ENV["MONGODB"]
+      uri: mongodb+srv://admin:<%=ENV['MONGOPASS']%>@cluster0.svrtk17.mongodb.net/expense_manager_development?retryWrites=true&w=majority
       options:
         server_selection_timeout: 5
       
