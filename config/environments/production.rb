@@ -42,21 +42,21 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Include generic and useful information about system operation, but avoid logging too much
-  # information to avoid inadvertent exposure of personally identifiable information (PII).
+  # information to avoid inadvertent exposure of personally identifiapble information (PII).
   config.log_level = :info
 
-  config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
 
   # SMTP settings for gmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :user_name => ENV["EMAIL"],
-    :password => ENV["PASSWORD"],
-    :authentication => "plain",
-    :enable_starttls_auto => true
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: Rails.application.credentials[Rails.env.to_sym][:EMAIL] ,
+    password: Rails.application.credentials[Rails.env.to_sym][:PASSWORD],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    domain: "gmail.com"
   }
 
   # Prepend all log lines with the following tags.
