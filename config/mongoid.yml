@@ -2,13 +2,13 @@
 development:
   clients:
     default:
-      uri: 'mongodb+srv://admin:credavenue@cluster0.svrtk17.mongodb.net/expense_manager_development?retryWrites=true&w=majority'
+      uri: <%=Rails.application.credentials[Rails.env.to_sym][:MONGODB]%>
       options:
         server_selection_timeout: 5
 production:
   clients:
     default:
-      uri: 'mongodb+srv://admin:credavenue@cluster0.svrtk17.mongodb.net/expense_manager_development?retryWrites=true&w=majority'
+      uri: <%=Rails.application.credentials[Rails.env.to_sym][:MONGODB]%>
       options:
         server_selection_timeout: 5
       

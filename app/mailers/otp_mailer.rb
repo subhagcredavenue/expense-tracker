@@ -10,9 +10,18 @@ class OtpMailer < ApplicationMailer
     mail(:to => "subhagjain@gmail.com", :subject => "hello", :body => "body")
   end
 
-  def generate_otp(email)
-    @otp = rand(100000...999999)
-    message = mail(:to => email, :subject => "Your OTP: #{@otp}")
+  def generate_otp(email,otp)
+   @otp=otp
+    message = mail(:to => email, :subject => "Your OTP")
     message.deliver
   end
+
+
+
+  def send_transaction_history(email, transactions)
+    @transactions=transactions
+    message = mail(:to => email, :subject => "Transaction history")
+
+  end
+
 end
