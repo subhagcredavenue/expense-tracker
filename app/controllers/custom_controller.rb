@@ -12,7 +12,8 @@ class CustomController < ApplicationController
 
   end
   def send_transaction_history
-      OtpMailer.send_transaction_history(@user.email, @transactions.to_json).deliver_later
+      # OtpMailer.send_transaction_history(@user.email, @transactions).deliver_later
+      OtpMailer.send_transaction_history(@user.email, params[:user_id]).deliver_later
   end
 
   def max_debit

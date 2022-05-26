@@ -1,5 +1,5 @@
 class OtpMailer < ApplicationMailer
-  default :from => "subhagjain10@gmail.com"
+  default :from => Rails.application.credentials[Rails.env.to_sym][:EMAIL]
 
   def caller
     message = OtpMailer.email_message()
@@ -18,8 +18,10 @@ class OtpMailer < ApplicationMailer
 
 
 
-  def send_transaction_history(email, transactions)
-    @transactions=transactions
+  def send_transaction_history(email, user_id)
+    # @transactions=transactions.to_a
+    @transactions = Transaction.where(user_id: BSON::ObjectId(user_id))
+
     message = mail(:to => email, :subject => "Transaction history")
 
   end

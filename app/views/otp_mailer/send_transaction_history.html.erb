@@ -1,0 +1,22 @@
+Here's your transaction history:
+<table>
+  <tr>
+    <th>Title</th>
+    <th>category</th>
+    <th>date</th>
+    <th>type</th>
+    <th>amount</th>
+    
+  </tr>
+ 
+<% @transactions.each do |x| %>
+  <tr>
+    <td><%= x.title %></td>
+    <td><%= x.category %></td> 
+    <td><%= x.date%></td>
+    <td><%= x.type%></td>
+    <td><%= x.amount %></td>
+
+  </tr>
+<% end %>
+</table>
