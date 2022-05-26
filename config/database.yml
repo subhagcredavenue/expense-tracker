@@ -50,7 +50,6 @@ test:
   
 
 production:
-
   database: d1c0cga1idjq9v
   username: ncxibwbbnekujc
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
