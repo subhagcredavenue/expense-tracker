@@ -37,13 +37,20 @@ development:
   database: flatiron_mod3_development
   pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
   timeout: 5000
-production: 
-  adapter: postgresql
-  database: flatiron_mod3_production
-  pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
-  timeout: 5000
+# production: 
+#   adapter: postgresql
+#   database: flatiron_mod3_production
+#   pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
+#   timeout: 5000
 test: 
   adapter: postgresql
   database: flatiron_mod3_test
   pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
   timeout: 5000
+  
+
+production:
+  <<: *default
+  database: d1c0cga1idjq9v
+  username: ncxibwbbnekujc
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
