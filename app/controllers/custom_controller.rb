@@ -12,7 +12,7 @@ class CustomController < ApplicationController
     @transactions = @transactions.to_a.sort_by { |h| -h[:amount] }
     @transactions = @transactions.slice(0, params[:max].to_i)
 
-    OtpMailer.generate_otp("subhagjain@gmail.com").deliver
+    # OtpMailer.generate_otp("subhagjain@gmail.com").deliver
 #    OtpMailer.deliver_now
     # puts ENV['EMAIL']
     render json: @transactions
